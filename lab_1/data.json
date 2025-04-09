@@ -1,0 +1,26 @@
+{
+    "devices": [
+      {
+        "id": 1,
+        "name": "Laptop",
+        "brand": "Dell",
+        "specs": {
+          "cpu": "Intel i7",
+          "ram": 16,
+          "ssd": true
+        },
+        "accessories": ["charger", "bag"]
+      },
+      {
+        "id": 2,
+        "name": "Smartphone",
+        "brand": "Samsung",
+        "specs": {
+          "cpu": "Exynos",
+          "ram": 8,
+          "ssd": false
+        },
+        "accessories": ["case", "earbuds"]
+      }
+    ]
+  }
