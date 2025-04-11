@@ -5,9 +5,8 @@ import { Router } from '@angular/router';
 import { Page1Component } from './pages/page1/page1.component';
 import { Page2Component } from './pages/page2/page2.component';
 import { Page3Component } from './pages/page3/page3.component';
-import { By } from '@angular/platform-browser';
 
-describe('AppComponent (standalone) with routing and params', () => {
+describe('AppComponent (standalone) with navigate()', () => {
   let fixture: ComponentFixture<AppComponent>;
   let component: AppComponent;
   let router: Router;
@@ -30,14 +29,21 @@ describe('AppComponent (standalone) with routing and params', () => {
     fixture.detectChanges();
   });
 
-  it('должен переходить на страницу Page2 с параметром и отображать его', async () => {
-    // Переход на страницу с параметром
-    await router.navigate(['/page2', 123]);  // Передаем параметр 123
-    fixture.detectChanges();
-    
-    // Проверяем, что на странице Page2 отображается параметр
-    const page2El = fixture.debugElement.query(By.css('app-page2'));
-    const idText = page2El.nativeElement.querySelector('p').textContent;
-    expect(idText).toContain('Полученный параметр ID: 123');
+  it('должен переходить на страницу Page1 при вызове goToPage1()', async () => {
+    spyOn(router, 'navigate');
+    component.goToPage1();
+    expect(router.navigate).toHaveBeenCalledWith(['/page1']);
+  });
+
+  it('должен переходить на страницу Page2 с параметром при вызове goToPage2()', async () => {
+    spyOn(router, 'navigate');
+    component.goToPage2();
+    expect(router.navigate).toHaveBeenCalledWith(['/page2', 123]);
+  });
+
+  it('должен переходить на страницу Page3 при вызове goToPage3()', async () => {
+    spyOn(router, 'navigateByUrl');
+    component.goToPage3();
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/page3');
   });
 });

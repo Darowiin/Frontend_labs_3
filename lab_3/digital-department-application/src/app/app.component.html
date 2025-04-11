@@ -1,9 +1,13 @@
-<nav>
-  <a routerLink="/page1" routerLinkActive="active">Страница 1</a> |
-  <a routerLink="/page2/123" routerLinkActive="active">Страница 2 с параметром</a> |
-  <a routerLink="/page3" routerLinkActive="active">Страница 3</a>
-</nav>
+<div>
+  <h1 italic>Главная страница</h1>
+  <button (click)="goToPage1()">Перейти на страницу 1</button>
+  <button (click)="goToPage2()">Перейти на страницу 2</button>
+  <button (click)="goToPage3()">Перейти на страницу 3</button>
+  <button (click)="logServiceData()">Вывести данные сервиса в консоль</button>
+</div>
 
 <hr />
 
 <router-outlet></router-outlet>
+
+
